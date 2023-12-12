@@ -1,0 +1,36 @@
+nav {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-between; 
+
+    .leftMenu {
+        background-color: red;
+        display: flex;
+        width: 20%;
+
+        li {
+            list-style: none;
+            background-color: aqua;
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .rightMenu {
+        background-color: rgb(125, 87, 87);
+        display: flex;
+        width: 20%;
+
+        li {
+            list-style: none;
+            background-color: aqua;
+            width: 100%;
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}

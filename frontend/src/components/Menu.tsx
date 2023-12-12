@@ -1,0 +1,30 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import "../style/menu.scss";
+import CartIcon from "../Icons/CartIcon";
+import SearchIcon from "../Icons/SearchIcon";
+
+function Menu(): JSX.Element {
+  return (
+    <nav>
+      <ul className="leftMenu">
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/clothing">Clothing</Link>
+        </li>
+      </ul>
+      <ul className="rightMenu">
+        <li>
+          <SearchIcon />
+        </li>
+        <li>
+          <CartIcon />
+        </li>
+      </ul>
+    </nav>
+  );
+}
+
+export default Menu;
