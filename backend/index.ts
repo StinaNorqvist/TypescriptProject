@@ -17,10 +17,12 @@ const client = new Client({
 
 client.connect();
 
-// GET ALL PETS
+// GET ALL PRODUCTS
 app.get("/products", async (_request, response) => {
   try {
-    const { rows } = await client.query("SELECT * FROM products");
+    const { rows } = await client.query(
+      "SELECT p.productId, p.productName, p.productPrice, p.productImage, p.productSize, c.condition AS productCondition, cat.category AS productCategory FROM products p INNER JOIN conditions c ON p.ProductCondition = c.conditionId INNER JOIN categories cat ON p.productCategory = cat.categoryId"
+    );
     response.send(rows);
     console.log(response, "RESPONSE");
   } catch (error) {
