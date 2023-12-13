@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 
+interface IProducts {
+  productId: number;
+  productName: string;
+  productPrice: number;
+  productImage: string;
+  productSize: string;
+  productCondition: string;
+  productCategory: string;
+}
+
 function Clothing(): JSX.Element {
+  const [products, setProducts] = useState<IProducts[]>([]);
+
+  useEffect(() => {});
+
   return (
     <>
       <Header />

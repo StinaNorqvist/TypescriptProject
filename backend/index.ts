@@ -18,42 +18,43 @@ const client = new Client({
 client.connect();
 
 // GET ALL PETS
-app.get("/api", async (_request, response) => {
+app.get("/products", async (_request, response) => {
   try {
-    const { rows } = await client.query("SELECT * FROM pets");
+    const { rows } = await client.query("SELECT * FROM products");
     response.send(rows);
+    console.log(response, "RESPONSE");
   } catch (error) {
     response.status(500).send("Internal server error");
-    console.log(error, "Failed to fetch pets");
+    console.log(error, "Failed to fetch products");
   }
 });
 
 // POST NEW PET
-app.post("/api", async (request, response) => {
-  try {
-    const { name, age, species } = request.body;
-    const { rows } = await client.query(
-      "INSERT INTO pets (name, age, species) VALUES ($1, $2, $3)",
-      [name, age, species]
-    );
-    response.send(rows);
-  } catch (error) {
-    response.status(500).send("Internal server error");
-    console.error(error, "Failed to post a pet");
-  }
-});
+// app.post("/api", async (request, response) => {
+//   try {
+//     const { name, age, species } = request.body;
+//     const { rows } = await client.query(
+//       "INSERT INTO pets (name, age, species) VALUES ($1, $2, $3)",
+//       [name, age, species]
+//     );
+//     response.send(rows);
+//   } catch (error) {
+//     response.status(500).send("Internal server error");
+//     console.error(error, "Failed to post a pet");
+//   }
+// });
 
 // DELETE PET
-app.delete("/api", async (request, response) => {
-  try {
-    const { id } = request.body;
-    const { rows } = await client.query("DELETE FROM pets WHERE id = $1", [id]);
-    response.send(rows);
-  } catch (error) {
-    response.status(500).send("Internal server error");
-    console.log(error, "Failed to delete a pet");
-  }
-});
+// app.delete("/api", async (request, response) => {
+//   try {
+//     const { id } = request.body;
+//     const { rows } = await client.query("DELETE FROM pets WHERE id = $1", [id]);
+//     response.send(rows);
+//   } catch (error) {
+//     response.status(500).send("Internal server error");
+//     console.log(error, "Failed to delete a pet");
+//   }
+// });
 
 app.use(cors());
 app.use(express.static(path.join(path.resolve(), "public")));
