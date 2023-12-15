@@ -11,13 +11,30 @@ client.connect();
 router.get("/products", async (_request, response) => {
   try {
     const { rows } = await client.query(
-      "SELECT p.productId, p.productName, p.productPrice, p.productImage, p.productSize, c.condition AS productCondition, cat.category AS productCategory FROM products p INNER JOIN conditions c ON p.ProductCondition = c.conditionId INNER JOIN categories cat ON p.productCategory = cat.categoryId"
+      "SELECT productId, productName, productPrice, productImage, productSize, conditions.condition AS productCondition, categories.category AS productCategory FROM products INNER JOIN conditions ON ProductCondition = conditionId INNER JOIN categories ON productCategory = categoryId;"
     );
     response.send(rows);
-    console.log(response, "Products");
+    console.log("Request was successful");
   } catch (error) {
     response.status(500).send("Internal server error");
     console.log(error, "Failed to fetch products");
+  }
+});
+
+// GET PRODUCTS FROM ONE CATEGORY
+router.get("/products/:category", async (request, response) => {
+  try {
+    const category = request.params.category;
+    console.log(category, "CATEGORY");
+    const { rows } = await client.query(
+      "SELECT productId, productName, productPrice, productImage, productSize, conditions.condition AS productCondition, categories.category AS productCategory FROM products INNER JOIN conditions ON ProductCondition = conditionId INNER JOIN categories ON productCategory = categoryId WHERE category = $1",
+      [category]
+    );
+    response.send(rows);
+    console.log("Request was successful");
+  } catch (error) {
+    response.status(500).send("Internal server error");
+    console.log(error, "Failed to fetch from category");
   }
 });
 
