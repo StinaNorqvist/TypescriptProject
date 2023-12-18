@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { IProducts } from "../interfaces/interfaces";
 
 function FilterButtons(): JSX.Element {
-  const [products, setProducts] = useState<IProducts[]>([]);
-  console.log(products, "PRODUCTS");
+  const [filterProducts, setFilterProducts] = useState<IProducts[]>([]);
+  console.log(filterProducts, "FILTERED PRODUCTS");
 
   const handleFilterClick = (category: string) => {
     console.log(category, "CATEGORY");
     fetch(`/api/products/${category}`)
       .then((response) => response.json())
       .then((data: IProducts[]) => {
-        setProducts(data);
+        setFilterProducts(data);
         console.log(data, "DATA");
       });
   };
@@ -19,39 +19,46 @@ function FilterButtons(): JSX.Element {
       <div className="filtersDiv">
         <button onClick={() => handleFilterClick("Jumper")}>Knitwear</button>
 
-        {/* Backend: Jacket */}
-        <button>Jackets</button>
+        {/* Backend: Dress */}
+        <button onClick={() => handleFilterClick("Dress")}>Dresses</button>
 
-        {/* Backend: Tops */}
-        <button>Tops</button>
+        {/* Backend: Jacket */}
+        <button onClick={() => handleFilterClick("Jacket")}>Jackets</button>
+
+        {/* Backend: Top */}
+        <button onClick={() => handleFilterClick("Top")}>Tops</button>
 
         {/* Backend: Blazer */}
-        <button>Blazers</button>
+        <button onClick={() => handleFilterClick("Blazer")}>Blazers</button>
 
         {/* Backend: Sweatshirt */}
-        <button>Sweatshirts</button>
+        <button onClick={() => handleFilterClick("Sweatshirt")}>
+          Sweatshirts
+        </button>
 
         {/* Backend: Jeans */}
-        <button>Jeans</button>
+        <button onClick={() => handleFilterClick("Jeans")}>Jeans</button>
 
         {/* Backend: Skirt */}
-        <button>Skirts</button>
+        <button onClick={() => handleFilterClick("Skirt")}>Skirts</button>
 
         {/* Backend: Trousers */}
-        <button>Trousers</button>
+        <button onClick={() => handleFilterClick("Trousers")}>Trousers</button>
 
         {/* Backend: Shorts */}
-        <button>Shorts</button>
+        <button onClick={() => handleFilterClick("Shorts")}>Shorts</button>
 
         {/* Backend: Swimwear */}
-        <button>Swimwear</button>
+        <button onClick={() => handleFilterClick("Swimwear")}>Swimwear</button>
 
         {/* Backend: Sleepwear */}
-        <button>Sleepwear</button>
+        <button onClick={() => handleFilterClick("Sleepwear")}>
+          Sleepwear
+        </button>
 
         {/* Backend: Hats, Earring, Necklace, Ring, Bag, Shoes */}
         {/* MOVE TO AN OWN NAV-OPTION??? */}
-        <button>Accessories</button>
+        <button onClick={() => handleFilterClick("Blazer")}>Accessories</button>
       </div>
     </>
   );

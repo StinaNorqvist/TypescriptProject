@@ -14,6 +14,12 @@ function Menu(): JSX.Element {
         <li>
           <Link to="/clothing">Clothing</Link>
         </li>
+        <li>
+          <Link to="/accessories">Accessories</Link>
+        </li>
+        <li>
+          <Link to="/about">About Us</Link>
+        </li>
       </ul>
       <ul className="rightMenu">
         <li>
