@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { IProducts } from "../interfaces/interfaces";
 
-function FilterButtons(): JSX.Element {
-  const [filterProducts, setFilterProducts] = useState<IProducts[]>([]);
-  console.log(filterProducts, "FILTERED PRODUCTS");
+// 1. PROP INTERFACE
+interface FilterButtonsProps {
+  sendProp: (prop: IProducts[]) => void;
+}
 
+// 2. SEND DATA AS A PROP TO PARENT
+const FilterButtons: React.FC<FilterButtonsProps> = ({ sendProp }) => {
   const handleFilterClick = (category: string) => {
     console.log(category, "CATEGORY");
     fetch(`/api/products/${category}`)
       .then((response) => response.json())
       .then((data: IProducts[]) => {
-        setFilterProducts(data);
-        console.log(data, "DATA");
+        sendProp(data);
       });
   };
+
   return (
     <>
       <div className="filtersDiv">
@@ -62,6 +65,6 @@ function FilterButtons(): JSX.Element {
       </div>
     </>
   );
-}
+};
 
 export default FilterButtons;
