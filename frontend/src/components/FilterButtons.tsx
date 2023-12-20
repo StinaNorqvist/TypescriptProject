@@ -21,7 +21,7 @@ const FilterButtons: React.FC<FilterButtonsProps> = ({ sendProp }) => {
 
   //   FETCH ALL CATEGORIES TO MAP BUTTONS
   const fetchAllCategories = () => {
-    fetch("/api/categories")
+    fetch("/api/categories/clothes")
       .then((response) => response.json())
       .then((data: ICategories[]) => {
         setCategories(data);

@@ -1,43 +1,57 @@
-import React, { useState } from "react";
-import { IProducts } from "../interfaces/interfaces";
+import React, { useEffect, useState } from "react";
+import { ICategories, IProducts } from "../interfaces/interfaces";
 
-function AccessoriesFilterButtons(): JSX.Element {
-  const [filterAccessories, setFilterAccessories] = useState<IProducts[]>([]);
-  console.log(filterAccessories, "FILTERED PRODUCTS");
+// 1. PROP INTERFACE
+interface FilterButtonsProps {
+  sendProp: (prop: IProducts[]) => void;
+}
 
+const AccessoriesFilterButtons: React.FC<FilterButtonsProps> = ({
+  sendProp,
+}) => {
+  const [categories, setCategories] = useState<ICategories[]>([]);
+
+  // 2. SEND DATA AS A PROP TO PARENT
   const handleFilterClick = (category: string) => {
     console.log(category, "CATEGORY");
     fetch(`/api/accessories/${category}`)
       .then((response) => response.json())
       .then((data: IProducts[]) => {
-        setFilterAccessories(data);
-        console.log(data, "DATA");
+        sendProp(data);
       });
   };
+
+  //   FETCH ALL CATEGORIES TO MAP BUTTONS
+  const fetchAllCategories = () => {
+    fetch("/api/categories/accessories")
+      .then((response) => response.json())
+      .then((data: ICategories[]) => {
+        setCategories(data);
+      });
+  };
+
+  useEffect(() => {
+    fetchAllCategories();
+  }, []);
+
+  console.log(categories, "CATEGORIES");
 
   return (
     <>
       <div className="filtersDiv">
-        {/* Backend: Hat, Ring, Bag, Shoes */}
-        <button onClick={() => handleFilterClick("Hat")}>Hats</button>
+        <button onClick={() => handleFilterClick("")}>All Accessories</button>
 
-        {/* Backend: Earring */}
-        <button onClick={() => handleFilterClick("Earring")}>Earrings</button>
-
-        {/* Backend: Necklace */}
-        <button onClick={() => handleFilterClick("Necklace")}>Necklaces</button>
-
-        {/* Backend: Ring */}
-        <button onClick={() => handleFilterClick("Ring")}>Rings</button>
-
-        {/* Backend: Bag */}
-        <button onClick={() => handleFilterClick("Bag")}>Bags</button>
-
-        {/* Backend: Shoes */}
-        <button onClick={() => handleFilterClick("Shoes")}>Shoes</button>
+        {categories.map((c) => (
+          <button
+            key={c.categoryid}
+            onClick={() => handleFilterClick(c.category)}
+          >
+            {c.category}
+          </button>
+        ))}
       </div>
     </>
   );
-}
+};
 
 export default AccessoriesFilterButtons;
