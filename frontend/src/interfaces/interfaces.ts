@@ -7,3 +7,8 @@ export interface IProducts {
   productcondition: string;
   productcategory: string;
 }
+
+export interface ICategories {
+  categoryid: number;
+  category: string;
+}

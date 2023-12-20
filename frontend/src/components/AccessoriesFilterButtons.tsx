@@ -14,6 +14,7 @@ function AccessoriesFilterButtons(): JSX.Element {
         console.log(data, "DATA");
       });
   };
+
   return (
     <>
       <div className="filtersDiv">

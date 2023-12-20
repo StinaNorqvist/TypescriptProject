@@ -20,6 +20,10 @@ client.connect();
 // ROUTES
 import productRouter from "./routes/products";
 app.use("/api", productRouter);
+import categoryRouter from "./routes/categories";
+app.use("/api", categoryRouter);
+import accessoriesRouter from "./routes/accessories";
+app.use("/api", accessoriesRouter);
 
 app.use(cors());
 app.use(express.static(path.join(path.resolve(), "public")));

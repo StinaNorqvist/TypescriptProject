@@ -1,13 +1,15 @@
-import React from "react";
-import { IProducts } from "../interfaces/interfaces";
+import React, { useEffect, useState } from "react";
+import { ICategories, IProducts } from "../interfaces/interfaces";
 
 // 1. PROP INTERFACE
 interface FilterButtonsProps {
   sendProp: (prop: IProducts[]) => void;
 }
 
-// 2. SEND DATA AS A PROP TO PARENT
 const FilterButtons: React.FC<FilterButtonsProps> = ({ sendProp }) => {
+  const [categories, setCategories] = useState<ICategories[]>([]);
+
+  // 2. SEND DATA AS A PROP TO PARENT
   const handleFilterClick = (category: string) => {
     console.log(category, "CATEGORY");
     fetch(`/api/products/${category}`)
@@ -17,51 +19,32 @@ const FilterButtons: React.FC<FilterButtonsProps> = ({ sendProp }) => {
       });
   };
 
+  //   FETCH ALL CATEGORIES TO MAP BUTTONS
+  const fetchAllCategories = () => {
+    fetch("/api/categories")
+      .then((response) => response.json())
+      .then((data: ICategories[]) => {
+        setCategories(data);
+      });
+  };
+
+  useEffect(() => {
+    fetchAllCategories();
+  }, []);
+
   return (
     <>
       <div className="filtersDiv">
-        <button onClick={() => handleFilterClick("Jumper")}>Knitwear</button>
+        <button onClick={() => handleFilterClick("")}>All clothing</button>
 
-        {/* Backend: Dress */}
-        <button onClick={() => handleFilterClick("Dress")}>Dresses</button>
-
-        {/* Backend: Jacket */}
-        <button onClick={() => handleFilterClick("Jacket")}>Jackets</button>
-
-        {/* Backend: Top */}
-        <button onClick={() => handleFilterClick("Top")}>Tops</button>
-
-        {/* Backend: Blazer */}
-        <button onClick={() => handleFilterClick("Blazer")}>Blazers</button>
-
-        {/* Backend: Sweatshirt */}
-        <button onClick={() => handleFilterClick("Sweatshirt")}>
-          Sweatshirts
-        </button>
-
-        {/* Backend: Jeans */}
-        <button onClick={() => handleFilterClick("Jeans")}>Jeans</button>
-
-        {/* Backend: Skirt */}
-        <button onClick={() => handleFilterClick("Skirt")}>Skirts</button>
-
-        {/* Backend: Trousers */}
-        <button onClick={() => handleFilterClick("Trousers")}>Trousers</button>
-
-        {/* Backend: Shorts */}
-        <button onClick={() => handleFilterClick("Shorts")}>Shorts</button>
-
-        {/* Backend: Swimwear */}
-        <button onClick={() => handleFilterClick("Swimwear")}>Swimwear</button>
-
-        {/* Backend: Sleepwear */}
-        <button onClick={() => handleFilterClick("Sleepwear")}>
-          Sleepwear
-        </button>
-
-        {/* Backend: Hats, Earring, Necklace, Ring, Bag, Shoes */}
-        {/* MOVE TO AN OWN NAV-OPTION??? */}
-        <button onClick={() => handleFilterClick("Blazer")}>Accessories</button>
+        {categories.map((c) => (
+          <button
+            key={c.categoryid}
+            onClick={() => handleFilterClick(c.category)}
+          >
+            {c.category}
+          </button>
+        ))}
       </div>
     </>
   );
