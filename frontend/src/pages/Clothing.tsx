@@ -31,6 +31,17 @@ function Clothing(): JSX.Element {
     <>
       <Header />
       <h1>Clothing</h1>
+      {/* 
+      <Link
+              className="link"
+              to={`/homesforsale/${apartment.id}`}
+              key={apartment.id}
+            >
+              <img className="saleImg" src={apartment.images[0]} alt="Image" />
+              <h2>{apartment.name}</h2>
+              <p>{apartment.area}</p>
+              <p>{apartment.price + " SEK"}</p>
+            </Link> */}
 
       {/* 3. RECIEVE PROP AND NAME FUNCTION TO RECIEVEPROP THAT WILL HANDLE PROP */}
       <FilterButtons sendProp={receiveProp} />

@@ -38,6 +38,23 @@ router.get("/products/:category", async (request, response) => {
   }
 });
 
+// GET PRODUCT BY ID
+router.get("/products/clothing/:id", async (request, response) => {
+  try {
+    const productId = request.params.id;
+    console.log(productId, "PRODUCTID");
+    const { rows } = await client.query(
+      "SELECT productId, productName, productPrice, productImage, productSize, conditions.condition AS productCondition, categories.category AS productCategory FROM products INNER JOIN conditions ON ProductCondition = conditionId INNER JOIN categories ON productCategory = categoryId WHERE productId = $1",
+      [productId]
+    );
+    response.send(rows[0]);
+    console.log("Request was successful");
+  } catch (error) {
+    response.status(500).send("Internal server error");
+    console.log(error, "Failed to fetch product by ID");
+  }
+});
+
 // POST NEW PET
 // app.post("/api", async (request, response) => {
 //   try {

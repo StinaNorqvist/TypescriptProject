@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Clothing from "./pages/Clothing";
 import About from "./pages/About";
 import Accessories from "./pages/Accessories";
+import Item from "./pages/Item";
 
 function Root() {
   return <Outlet />;
@@ -20,12 +21,16 @@ function App(): JSX.Element {
             { element: <Clothing />, path: "/clothing" },
             { element: <Accessories />, path: "/accessories" },
             { element: <About />, path: "/about" },
+            // ADD ACCESSORIES ID PATH?
+            { element: <Item />, path: "/clothing/:id" },
           ],
         },
         { element: <Home />, path: "/" },
         { element: <Clothing />, path: "/clothing" },
         { element: <Accessories />, path: "/accessories" },
         { element: <About />, path: "/about" },
+        // ADD ACCESSORIES ID PATH?
+        { element: <Item />, path: "/clothing/:id" },
       ],
       element: <Root />,
     },
