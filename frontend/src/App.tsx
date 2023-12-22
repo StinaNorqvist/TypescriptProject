@@ -22,7 +22,7 @@ function App(): JSX.Element {
             { element: <Accessories />, path: "/accessories" },
             { element: <About />, path: "/about" },
             // ADD ACCESSORIES ID PATH?
-            { element: <Item />, path: "/clothing/:id" },
+            { element: <Item />, path: "/item/:id" },
           ],
         },
         { element: <Home />, path: "/" },

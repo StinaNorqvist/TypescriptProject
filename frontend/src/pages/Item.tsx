@@ -5,24 +5,33 @@ import { IProducts } from "../interfaces/interfaces";
 
 function Item(): JSX.Element {
   const { id } = useParams();
-  const [item, setItem] = useState<IProducts[]>([]);
-
-  console.log(id, "PRODUCTID");
+  const [item, setItem] = useState<IProducts | null>(null);
 
   useEffect(() => {
     fetch(`/api/products/clothing/${id}`)
       .then((response) => response.json())
-      .then((data: IProducts[]) => {
+      .then((data: IProducts) => {
         setItem(data);
-        console.log(data, "ALL PRODUCTS");
-        console.log(item, "ITAM");
       });
-  }, []);
+  }, [id]);
 
   return (
     <>
       <Header />
-      <h1>Item</h1>
+      {item && (
+        <div>
+          <h1>{item.productname}</h1>
+          <img
+            className="productImage"
+            src={item.productimage}
+            alt="Product Image"
+          />
+          <h2>Condition: {item.productcondition}</h2>
+          <h2>{item.productcategory}</h2>
+          <h2>{item.productprice} SEK</h2>
+          <h2>Size {item.productsize}</h2>
+        </div>
+      )}
     </>
   );
 }

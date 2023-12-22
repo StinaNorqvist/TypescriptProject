@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import AccessoriesFilterButtons from "../components/AccessoriesFilterButtons";
 import { IProducts } from "../interfaces/interfaces";
+import { Link } from "react-router-dom";
 
 function Accessories(): JSX.Element {
   const [products, setProducts] = useState<IProducts[]>([]);
@@ -37,13 +38,19 @@ function Accessories(): JSX.Element {
         <div className="productContainer">
           {filterProducts.map((p) => (
             <div className="productDiv" key={p.productid}>
-              <div className="imageDiv">
-                <img
-                  className="productImage"
-                  src={p.productimage}
-                  alt="Product Image"
-                />
-              </div>
+              <Link
+                className="link"
+                to={`/item/${p.productid}`}
+                key={p.productid}
+              >
+                <div className="imageDiv">
+                  <img
+                    className="productImage"
+                    src={p.productimage}
+                    alt="Product Image"
+                  />
+                </div>
+              </Link>
             </div>
           ))}
         </div>
@@ -51,15 +58,19 @@ function Accessories(): JSX.Element {
         <div className="productContainer">
           {products.map((p) => (
             <div className="productDiv" key={p.productid}>
-              {/* <p>{p.productname}</p>
-          <p>{p.productprice}</p> */}
-              <div className="imageDiv">
-                <img
-                  className="productImage"
-                  src={p.productimage}
-                  alt="Product Image"
-                />
-              </div>
+              <Link
+                className="link"
+                to={`/item/${p.productid}`}
+                key={p.productid}
+              >
+                <div className="imageDiv">
+                  <img
+                    className="productImage"
+                    src={p.productimage}
+                    alt="Product Image"
+                  />
+                </div>
+              </Link>
             </div>
           ))}
         </div>
