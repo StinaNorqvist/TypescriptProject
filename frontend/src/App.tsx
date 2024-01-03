@@ -6,6 +6,7 @@ import Clothing from "./pages/Clothing";
 import About from "./pages/About";
 import Accessories from "./pages/Accessories";
 import Item from "./pages/Item";
+import { CartProvider } from "./contexts/CartContext";
 
 function Root() {
   return <Outlet />;
@@ -37,7 +38,9 @@ function App(): JSX.Element {
   ]);
   return (
     <>
-      <RouterProvider router={router} />
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     </>
   );
 }

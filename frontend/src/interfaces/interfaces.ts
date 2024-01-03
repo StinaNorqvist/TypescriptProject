@@ -1,6 +1,6 @@
 export interface IProducts {
   id?: string;
-  productid: number;
+  productid: string;
   productname: string;
   productprice: number;
   productimage: string;
@@ -12,4 +12,10 @@ export interface IProducts {
 export interface ICategories {
   categoryid: number;
   category: string;
+}
+
+// CHANGE THIS MAYBE:
+export interface ICartProps {
+  cartItems: string[];
+  addToCart: (productId: string) => void;
 }
