@@ -46,11 +46,11 @@ function Clothing(): JSX.Element {
                 key={p.productid}
               >
                 <div className="imageDiv">
-                  <img
+                  {/* <img
                     className="productImage"
                     src={p.productimage}
                     alt="Product Image"
-                  />
+                  /> */}
                 </div>
               </Link>
             </div>
@@ -66,11 +66,11 @@ function Clothing(): JSX.Element {
                 key={p.productid}
               >
                 <div className="imageDiv">
-                  <img
+                  {/* <img
                     className="productImage"
                     src={p.productimage}
                     alt="Product Image"
-                  />
+                  /> */}
                 </div>
               </Link>
             </div>

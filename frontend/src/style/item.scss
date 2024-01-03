@@ -1,0 +1,52 @@
+.itemContainer {
+    width: 100%;
+    display: flex;
+    margin: 40px;
+
+    .leftDiv {
+        background-color: red;
+        width: 400px;
+        height: 400px;
+        
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+    }
+}
+
+    .rightDiv {
+        background-color: green;
+        width: 60%;
+    }
+    
+}
+
+.similarH1 {
+    margin: 40px;
+}
+
+.similarContainer {
+    background-color: red;
+    display: flex;
+    height: 200px;
+    margin: 40px;
+
+    div {
+        width: 300px;
+
+        h1 {
+            background-color: aqua;
+            width: 100%;
+            font-size: smaller;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+}
