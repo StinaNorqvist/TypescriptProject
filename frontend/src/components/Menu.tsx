@@ -10,16 +10,24 @@ function Menu(): JSX.Element {
     <nav>
       <ul className="leftMenu">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/" id="homeLink">
+            Home
+          </Link>
         </li>
         <li>
-          <Link to="/clothing">Clothing</Link>
+          <Link to="/clothing" id="clothingLink">
+            Clothing
+          </Link>
         </li>
         <li>
-          <Link to="/accessories">Accessories</Link>
+          <Link to="/accessories" id="AccessoriesLink">
+            Accessories
+          </Link>
         </li>
         <li>
-          <Link to="/about">About Us</Link>
+          <Link to="/about" id="aboutUsLink">
+            About Us
+          </Link>
         </li>
       </ul>
       <ul className="rightMenu">
