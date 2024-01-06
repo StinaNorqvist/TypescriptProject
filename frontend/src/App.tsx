@@ -6,6 +6,7 @@ import Clothing from "./pages/Clothing";
 import About from "./pages/About";
 import Accessories from "./pages/Accessories";
 import Item from "./pages/Item";
+import Cart from "./pages/Cart";
 import { CartProvider } from "./contexts/CartContext";
 
 function Root() {
@@ -22,6 +23,7 @@ function App(): JSX.Element {
             { element: <Clothing />, path: "/clothing" },
             { element: <Accessories />, path: "/accessories" },
             { element: <About />, path: "/about" },
+            { element: <Cart />, path: "/cart" },
             // ADD ACCESSORIES ID PATH?
             { element: <Item />, path: "/item/:id" },
           ],
@@ -30,6 +32,7 @@ function App(): JSX.Element {
         { element: <Clothing />, path: "/clothing" },
         { element: <Accessories />, path: "/accessories" },
         { element: <About />, path: "/about" },
+        { element: <Cart />, path: "/cart" },
         // ADD ACCESSORIES ID PATH?
         { element: <Item />, path: "/item/:id" },
       ],

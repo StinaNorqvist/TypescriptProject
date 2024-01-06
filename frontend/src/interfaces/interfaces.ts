@@ -16,6 +16,6 @@ export interface ICategories {
 
 // CHANGE THIS MAYBE:
 export interface ICartProps {
-  cartItems: string[];
-  addToCart: (productId: string) => void;
+  cartItems: IProducts[];
+  addToCart: (product: IProducts) => void;
 }

@@ -43,6 +43,7 @@ const AccessoriesFilterButtons: React.FC<FilterButtonsProps> = ({
 
         {categories.map((c) => (
           <button
+            id="filterButtons"
             key={c.categoryid}
             onClick={() => handleFilterClick(c.category)}
           >

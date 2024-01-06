@@ -3,8 +3,13 @@ describe("Home page tests", () => {
     cy.visit("http://localhost:5173/");
   });
 
-  it("Clicks on the nav link to clothing", () => {
+  it("Clicks on the link to clothing", () => {
     cy.visit("http://localhost:5173/");
     cy.get("#clothingLink").click();
+  });
+
+  it("Clicks on the link to accessories", () => {
+    cy.visit("http://localhost:5173/");
+    cy.get("#accessoriesLink").click();
   });
 });

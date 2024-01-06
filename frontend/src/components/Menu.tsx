@@ -38,7 +38,9 @@ function Menu(): JSX.Element {
           <SearchIcon />
         </li>
         <li>
-          <CartIcon />
+          <Link to="/cart" id="cartLink">
+            <CartIcon />
+          </Link>
         </li>
       </ul>
     </nav>

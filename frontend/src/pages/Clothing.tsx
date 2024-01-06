@@ -55,9 +55,7 @@ function Clothing(): JSX.Element {
                   />
                 </div>
               </Link>
-              <button onClick={() => addToCart(p.productid)}>
-                Add to Cart
-              </button>
+              <button onClick={() => addToCart(p)}>Add to Cart</button>
             </div>
           ))}
         </div>
@@ -78,9 +76,7 @@ function Clothing(): JSX.Element {
                   />
                 </div>
               </Link>
-              <button onClick={() => addToCart(p.productid)}>
-                Add to Cart
-              </button>
+              <button onClick={() => addToCart(p)}>Add to Cart</button>
             </div>
           ))}
         </div>

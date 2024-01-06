@@ -32,6 +32,15 @@ describe("Clothing page tests", () => {
       url: "http://localhost:3000/api/products/Top",
     }).then((response) => {
       expect(response.status).to.eq(200);
+      console.log(response, "RESPONSE");
+      expect(response.body[0]).to.have.property(
+        "productname",
+        "White Knit Vest"
+      );
+      expect(response.body[1]).to.have.property(
+        "productname",
+        "Provence T-Shirt"
+      );
     });
   });
 });

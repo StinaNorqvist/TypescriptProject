@@ -3,10 +3,12 @@ import Header from "../components/Header";
 import AccessoriesFilterButtons from "../components/AccessoriesFilterButtons";
 import { IProducts } from "../interfaces/interfaces";
 import { Link } from "react-router-dom";
+import { useCart } from "../contexts/CartContext";
 
 function Accessories(): JSX.Element {
   const [products, setProducts] = useState<IProducts[]>([]);
   const [filterProducts, setFilterProducts] = useState<IProducts[]>([]);
+  const { addToCart } = useCart();
 
   // 4. SAY WHAT TO DO WITH THE RECIEVED PROP
   const receiveProp = (receivedProp: IProducts[]) => {
@@ -51,6 +53,9 @@ function Accessories(): JSX.Element {
                   />
                 </div>
               </Link>
+              <button onClick={() => addToCart(p.productid)}>
+                Add to Cart
+              </button>
             </div>
           ))}
         </div>
@@ -71,6 +76,9 @@ function Accessories(): JSX.Element {
                   />
                 </div>
               </Link>
+              <button onClick={() => addToCart(p.productid)}>
+                Add to Cart
+              </button>
             </div>
           ))}
         </div>

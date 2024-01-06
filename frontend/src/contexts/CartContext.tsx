@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { ICartProps } from "../interfaces/interfaces";
+import { ICartProps, IProducts } from "../interfaces/interfaces";
 
 // CART CONTEXT
 export const CartContext = createContext<ICartProps | undefined>(undefined);
@@ -17,10 +17,10 @@ export const useCart = () => {
 export const CartProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [cartItems, setCartItems] = useState<string[]>([]);
+  const [cartItems, setCartItems] = useState<IProducts[]>([]);
 
-  const addToCart = (productId: string) => {
-    setCartItems((prevItems) => [...prevItems, productId]);
+  const addToCart = (product: IProducts) => {
+    setCartItems((prevItems) => [...prevItems, product]);
   };
 
   console.log(cartItems, "CART ITEMS");
