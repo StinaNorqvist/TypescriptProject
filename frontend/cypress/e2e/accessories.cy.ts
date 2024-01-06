@@ -1,6 +1,8 @@
 describe("Accessories page tests", () => {
-  it("Should make a successful get request for all accessories", () => {
+  beforeEach(() => {
     cy.visit("http://localhost:5173/accessories");
+  });
+  it("Should make a successful get request for all accessories", () => {
     cy.request({
       method: "GET",
       url: "http://localhost:3000/api/accessories",
@@ -10,22 +12,18 @@ describe("Accessories page tests", () => {
   });
 
   it("Should render accessories images on the page", () => {
-    cy.visit("http://localhost:5173/accessories");
     cy.get(".productImage").should("exist");
   });
 
   it("Should render Add To Cart buttons", () => {
-    cy.visit("http://localhost:5173/accessories");
     cy.get("button").should("contain", "Add to Cart");
   });
 
   it("Should render the filter buttons", () => {
-    cy.visit("http://localhost:5173/accessories");
     cy.get("#filterButtons").should("contain", "Hat");
   });
 
   it("Should filter products when a filter button is clicked", () => {
-    cy.visit("http://localhost:5173/accessories");
     cy.get("#filterButtons").should("contain", "Hat").click();
     cy.request({
       method: "GET",
