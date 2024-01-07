@@ -10,6 +10,7 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import { CartProvider } from "./contexts/CartContext";
 import SignUp from "./pages/SignUp";
+import "./style/app.scss";
 
 function Root() {
   return <Outlet />;
