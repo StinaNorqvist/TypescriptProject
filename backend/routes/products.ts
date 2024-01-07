@@ -11,7 +11,7 @@ client.connect();
 router.get("/products", async (_request, response) => {
   try {
     const { rows } = await client.query(
-      "SELECT productId, productName, productPrice, productImage, productSize, condition AS productCondition, category AS productCategory FROM products INNER JOIN conditions ON ProductCondition = conditionId INNER JOIN categories ON productCategory = categoryId WHERE category IN ('Top', 'Jumper', 'Jacket', 'Blazer', 'Sweatshirt', 'Jeans', 'Dress', 'Skirt', 'Trousers', 'Shorts', 'Swimwear', 'Sleepwear');"
+      "SELECT productId, productName, productPrice, productImage, productSize, condition AS productCondition, category AS productCategory FROM products INNER JOIN conditions ON ProductCondition = conditionId INNER JOIN categories ON productCategory = categoryId WHERE category IN ('Tops', 'Knitwear', 'Jackets', 'Blazers', 'Sweatshirts', 'Denim', 'Dresses', 'Skirts', 'Trousers', 'Shorts', 'Swimwear', 'Sleepwear');"
     );
     response.send(rows);
     console.log("Request was successful");

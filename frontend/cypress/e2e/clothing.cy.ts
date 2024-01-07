@@ -20,14 +20,14 @@ describe("Clothing page tests", () => {
   });
 
   it("Should render the filter buttons", () => {
-    cy.get("#filterButtons").should("contain", "Top");
+    cy.get("#filterButtons").should("contain", "Tops");
   });
 
   it("Should filter products when a filter button is clicked", () => {
-    cy.get("#filterButtons").should("contain", "Top").click();
+    cy.get("#filterButtons").should("contain", "Tops").click();
     cy.request({
       method: "GET",
-      url: "http://localhost:3000/api/products/Top",
+      url: "http://localhost:3000/api/products/Tops",
     }).then((response) => {
       expect(response.status).to.eq(200);
       console.log(response, "RESPONSE");

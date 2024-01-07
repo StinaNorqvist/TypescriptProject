@@ -4,12 +4,9 @@ const router = express.Router();
 const client = new Client({
   connectionString: process.env.PGURI,
 });
-// GLÖM INTE BYGGA DENNA FILEN!!!!!
 
 client.connect();
 
-// GLÖM INTE BYGGA!!!!!
-// GLÖM INTE BYGGA!!!!!
 // GET ALL USERS
 router.get("/user", async (_request, response) => {
   try {
@@ -21,5 +18,5 @@ router.get("/user", async (_request, response) => {
     console.log(error, "Failed to fetch products");
   }
 });
-// GLÖM INTE BYGGA!!!!!
+
 export default router;

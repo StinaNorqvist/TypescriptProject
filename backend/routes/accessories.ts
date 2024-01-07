@@ -11,7 +11,7 @@ client.connect();
 router.get("/accessories", async (_request, response) => {
   try {
     const { rows } = await client.query(
-      "SELECT productId, productName, productPrice, productImage, productSize, condition AS productCondition, category AS productCategory FROM products INNER JOIN conditions ON ProductCondition = conditionId INNER JOIN categories ON productCategory = categoryId WHERE category IN ('Shoes', 'Hat', 'Earring', 'Necklace', 'Ring', 'Bag');"
+      "SELECT productId, productName, productPrice, productImage, productSize, condition AS productCondition, category AS productCategory FROM products INNER JOIN conditions ON ProductCondition = conditionId INNER JOIN categories ON productCategory = categoryId WHERE category IN ('Shoes', 'Headwear', 'Earrings', 'Necklaces', 'Rings', 'Bags');"
     );
     response.send(rows);
     console.log("Request was successful");

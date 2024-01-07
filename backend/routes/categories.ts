@@ -23,7 +23,7 @@ router.get("/categories", async (_request, response) => {
 router.get("/categories/accessories", async (_request, response) => {
   try {
     const { rows } = await client.query(
-      "SELECT * FROM categories WHERE category IN ('Hat', 'Earring', 'Necklace', 'Ring', 'Bag', 'Shoes')"
+      "SELECT * FROM categories WHERE category IN ('Headwear', 'Earrings', 'Necklaces', 'Rings', 'Bags', 'Shoes')"
     );
     response.send(rows);
     console.log("Request was successful");
@@ -37,7 +37,7 @@ router.get("/categories/accessories", async (_request, response) => {
 router.get("/categories/clothes", async (_request, response) => {
   try {
     const { rows } = await client.query(
-      "SELECT * FROM categories WHERE category IN ('Top', 'Jumper', 'Jacket', 'Blazer', 'Sweatshirt', 'Jeans', 'Dress', 'Skirt', 'Trousers', 'Shorts', 'Swimwear', 'Sleepwear')"
+      "SELECT * FROM categories WHERE category IN ('Tops', 'Knitwear', 'Jackets', 'Blazers', 'Sweatshirts', 'Denim', 'Dresses', 'Skirts', 'Trousers', 'Shorts', 'Swimwear', 'Sleepwear')"
     );
     response.send(rows);
     console.log("Request was successful");

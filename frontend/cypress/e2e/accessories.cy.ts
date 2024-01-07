@@ -20,14 +20,14 @@ describe("Accessories page tests", () => {
   });
 
   it("Should render the filter buttons", () => {
-    cy.get("#filterButtons").should("contain", "Hat");
+    cy.get("#filterButtons").should("contain", "Headwear");
   });
 
   it("Should filter products when a filter button is clicked", () => {
-    cy.get("#filterButtons").should("contain", "Hat").click();
+    cy.get("#filterButtons").should("contain", "Headwear").click();
     cy.request({
       method: "GET",
-      url: "http://localhost:3000/api/accessories/Hat",
+      url: "http://localhost:3000/api/accessories/Headwear",
     }).then((response) => {
       expect(response.status).to.eq(200);
       console.log(response, "RESPONSE");
