@@ -24,6 +24,8 @@ import categoryRouter from "./routes/categories";
 app.use("/api", categoryRouter);
 import accessoriesRouter from "./routes/accessories";
 app.use("/api", accessoriesRouter);
+import userRouter from "./routes/users";
+app.use("/api", userRouter);
 
 app.use(cors());
 app.use(express.static(path.join(path.resolve(), "public")));
