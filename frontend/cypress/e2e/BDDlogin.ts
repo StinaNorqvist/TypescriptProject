@@ -17,7 +17,7 @@ Given("Jag vill logga in med rätt lösenord och ser alla fält", () => {
 });
 
 When("Jag har skrivit in rätt lösenord", () => {
-  cy.intercept("POST", "/api/users", { statusCode: 200 }).as("goodRequest");
+  cy.intercept("POST", "/api/login", { statusCode: 200 }).as("goodRequest");
   cy.get("#userEmail").type("stina@gmail.com");
   cy.get("#userPassword").type("password");
   cy.get("#loginButton").should("not.be.disabled").click();
@@ -38,7 +38,7 @@ Given("Jag vill logga in med fel lösenord och ser alla fält", () => {
 });
 
 When("Jag har skrivit in fel lösenord", () => {
-  cy.intercept("POST", "/api/users", { statusCode: 500 }).as("badRequest");
+  cy.intercept("POST", "/api/login", { statusCode: 500 }).as("badRequest");
   cy.get("#userEmail").type("stina@gmail.com");
   cy.get("#userPassword").type("wrongpassword");
   cy.get("#loginButton").should("not.be.disabled").click();

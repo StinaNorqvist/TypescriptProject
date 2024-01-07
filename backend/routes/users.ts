@@ -50,4 +50,28 @@ router.post("/users", async (req, res) => {
   }
 });
 
+// LOGIN REQUEST TO SEE IF PASSWORD AND EMAIL IS CORRECT
+router.post("/login", async (req, res) => {
+  const useremail = req.body.useremail;
+  const userpassword = req.body.userpassword;
+
+  const sql = `SELECT * FROM users WHERE LOWER(useremail) = LOWER($1)`;
+
+  try {
+    await client.query(sql, [useremail], async (error, results) => {
+      if (error) {
+        throw error;
+      }
+      console.log("Login, check password");
+
+      if (userpassword === results.rows[0].userpassword) {
+        console.log("Correct password");
+        res.send(results.rows[0]);
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 export default router;
