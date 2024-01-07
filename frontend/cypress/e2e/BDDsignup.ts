@@ -33,7 +33,7 @@ Then("Ska knappen för att skapa konto bli klickbar", () => {
 });
 
 // TEST THE SIGNUP WITH THE INCORRECT INFORMATION
-Given("Jag vill skapa ett konto och ser alla fält", () => {
+Given("Jag vill skapa ett konto med fel info och ser alla fält", () => {
   cy.get("#userName").should("exist");
   cy.get("#userEmail").should("exist");
   cy.get("#userPassword").should("exist");

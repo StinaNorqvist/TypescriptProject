@@ -8,6 +8,6 @@ When Jag har skrivit in korrekt information på alla fält
 Then Ska knappen för att skapa konto bli klickbar
 
 Scenario: Jag vill skapa ett konto och har skrivit in fel information
-Given Jag är på sidan för att skapa ett konto och ser alla fält
+Given Jag vill skapa ett konto med fel info och ser alla fält
 When Jag har skrivit in fel format på min mailadress
 Then Ska knappen för att skapa konto fortsätta vara icke klickbar och ett felmeddelande visas

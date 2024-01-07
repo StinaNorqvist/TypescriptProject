@@ -32,7 +32,9 @@ function Menu(): JSX.Element {
       </ul>
       <ul className="rightMenu">
         <li>
-          <PersonIcon />
+          <Link to="/login" id="loginLink">
+            <PersonIcon />
+          </Link>
         </li>
         <li>
           <SearchIcon />

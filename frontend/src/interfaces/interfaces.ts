@@ -11,9 +11,9 @@ export interface IProducts {
 
 export interface IUser {
   id?: string;
-  userid: string;
+  userid?: number;
   username: string;
-  useremail: number;
+  useremail: string;
   userpassword: string;
   useraddress: string;
   userzipcode: string;
@@ -25,7 +25,6 @@ export interface ICategories {
   category: string;
 }
 
-// CHANGE THIS MAYBE:
 export interface ICartProps {
   cartItems: IProducts[];
   addToCart: (product: IProducts) => void;
