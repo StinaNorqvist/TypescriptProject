@@ -20,6 +20,11 @@ export interface IUser {
   usercity: string;
 }
 
+export interface ILogin {
+  useremail: string;
+  userpassword: string;
+}
+
 export interface ICategories {
   categoryid: number;
   category: string;

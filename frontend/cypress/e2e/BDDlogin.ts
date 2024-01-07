@@ -20,7 +20,7 @@ When("Jag har skrivit in rätt lösenord", () => {
   cy.intercept("POST", "/api/login", { statusCode: 200 }).as("goodRequest");
   cy.get("#userEmail").type("stina@gmail.com");
   cy.get("#userPassword").type("password");
-  cy.get("#loginButton").should("not.be.disabled").click();
+  cy.get("#loginButton").click().wait(5000);
   cy.wait("@goodRequest").then((interception) => {
     expect(interception.response.statusCode).to.eq(200);
   });
@@ -41,13 +41,12 @@ When("Jag har skrivit in fel lösenord", () => {
   cy.intercept("POST", "/api/login", { statusCode: 500 }).as("badRequest");
   cy.get("#userEmail").type("stina@gmail.com");
   cy.get("#userPassword").type("wrongpassword");
-  cy.get("#loginButton").should("not.be.disabled").click();
+  cy.get("#loginButton").click().wait(5000);
   cy.wait("@badRequest").then((interception) => {
-    // CHECK THE ERROR CODE LATER, MIGHT HAVE TO CHANGE IT:
     expect(interception.response.statusCode).to.eq(500);
   });
 });
 
-Then("Ska ett meddelande om att inloggningen misslyckades dyka upp", () => {
+Then("Ska ett meddelande om att inloggningen misslyckades renderas", () => {
   cy.get("#loginUnsuccessful").should("exist");
 });

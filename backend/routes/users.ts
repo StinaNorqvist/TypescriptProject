@@ -41,7 +41,7 @@ router.post("/users", async (req, res) => {
   ];
 
   try {
-    const result = await client.query(sql, values);
+    const { rows } = await client.query(sql, values);
     res.status(201).json({ message: "New user signed up" });
   } catch (error) {
     console.error("Error signing up new user:", error);
