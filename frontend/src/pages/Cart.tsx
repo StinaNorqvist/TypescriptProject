@@ -1,14 +1,11 @@
-import React from "react";
-import Header from "../components/Header";
 import { useCart } from "../contexts/CartContext";
 
-function Cart(): JSX.Element {
+const Cart = () => {
   const { cartItems } = useCart();
   console.log(cartItems, "CARTITEMS");
 
   return (
     <>
-      <Header />
       <h1>Cart</h1>
       <ul>
         {cartItems.map((item, index) => (
@@ -19,5 +16,5 @@ function Cart(): JSX.Element {
       </ul>
     </>
   );
-}
+};
 export default Cart;

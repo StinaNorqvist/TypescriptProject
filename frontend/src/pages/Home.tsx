@@ -1,15 +1,11 @@
-import React from "react";
-import Header from "../components/Header";
-// WRONG AGAIN
-import HomeImage from "../assets/HomeImage.png";
+import Footer from "../components/Footer";
 
-function Home(): JSX.Element {
+const Home = () => {
   return (
     <>
-      <Header />
       <img src={HomeImage} alt="HomeImage" />
-      <img src="{require(../assets/HomeImage.png)}" alt="Gah" />
+      <Footer />
     </>
   );
-}
+};
 export default Home;

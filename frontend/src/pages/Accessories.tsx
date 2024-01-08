@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Header from "../components/Header";
+import { useEffect, useState } from "react";
 import AccessoriesFilterButtons from "../components/AccessoriesFilterButtons";
 import { IProducts } from "../interfaces/interfaces";
 import { Link } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
 
-function Accessories(): JSX.Element {
+const Accessories = () => {
   const [products, setProducts] = useState<IProducts[]>([]);
   const [filterProducts, setFilterProducts] = useState<IProducts[]>([]);
   const { addToCart } = useCart();
@@ -32,7 +31,6 @@ function Accessories(): JSX.Element {
   console.log(filterProducts, "FILTER PRODUCTS");
   return (
     <>
-      <Header />
       <h1>Accessories</h1>
       <AccessoriesFilterButtons sendProp={receiveProp} />
 
@@ -53,9 +51,7 @@ function Accessories(): JSX.Element {
                   />
                 </div>
               </Link>
-              <button onClick={() => addToCart(p.productid)}>
-                Add to Cart
-              </button>
+              <button onClick={() => addToCart(p)}>Add to Cart</button>
             </div>
           ))}
         </div>
@@ -76,14 +72,12 @@ function Accessories(): JSX.Element {
                   />
                 </div>
               </Link>
-              <button onClick={() => addToCart(p.productid)}>
-                Add to Cart
-              </button>
+              <button onClick={() => addToCart(p)}>Add to Cart</button>
             </div>
           ))}
         </div>
       )}
     </>
   );
-}
+};
 export default Accessories;

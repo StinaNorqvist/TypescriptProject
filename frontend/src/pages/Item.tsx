@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import Header from "../components/Header";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IProducts } from "../interfaces/interfaces";
 import "../style/item.scss";
 
-function Item(): JSX.Element {
+const Item = () => {
   const { id } = useParams();
   const [item, setItem] = useState<IProducts | null>(null);
   const [category, setCategory] = useState<string>("");
@@ -62,7 +61,6 @@ function Item(): JSX.Element {
 
   return (
     <>
-      <Header />
       {item && (
         <div className="itemContainer">
           <div className="leftDiv">
@@ -92,5 +90,5 @@ function Item(): JSX.Element {
       </div>
     </>
   );
-}
+};
 export default Item;

@@ -1,11 +1,9 @@
-import React from "react";
-import Header from "../components/Header";
 import { Formik, Form, Field } from "formik";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { IUser } from "../interfaces/interfaces";
 
-function SignUp(): JSX.Element {
+const SignUp = () => {
   const initialValues = {
     username: "",
     useremail: "",
@@ -58,7 +56,6 @@ function SignUp(): JSX.Element {
 
   return (
     <>
-      <Header />
       <h1>Sign Up</h1>
       <Formik
         initialValues={initialValues}
@@ -157,5 +154,5 @@ function SignUp(): JSX.Element {
       <Link to={"/login"}>Log in</Link>
     </>
   );
-}
+};
 export default SignUp;

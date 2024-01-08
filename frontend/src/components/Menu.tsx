@@ -1,11 +1,10 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "../style/menu.scss";
 import CartIcon from "../Icons/CartIcon";
 import SearchIcon from "../Icons/SearchIcon";
 import PersonIcon from "../Icons/PersonIcon";
 
-function Menu(): JSX.Element {
+const Menu = () => {
   return (
     <nav>
       <ul className="leftMenu">
@@ -47,6 +46,6 @@ function Menu(): JSX.Element {
       </ul>
     </nav>
   );
-}
+};
 
 export default Menu;

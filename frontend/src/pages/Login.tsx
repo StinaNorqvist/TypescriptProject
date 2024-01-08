@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import Header from "../components/Header";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { ILogin } from "../interfaces/interfaces";
 
-function Login(): JSX.Element {
+const Login = () => {
   const [success, setSuccess] = useState<boolean>(false);
   const [fail, setFail] = useState<boolean>(false);
 
@@ -57,7 +56,6 @@ function Login(): JSX.Element {
 
   return (
     <>
-      <Header />
       <h1>Login</h1>
       <Formik
         initialValues={initialValues}
@@ -111,5 +109,5 @@ function Login(): JSX.Element {
       <Link to={"/signup"}>Sign Up</Link>
     </>
   );
-}
+};
 export default Login;

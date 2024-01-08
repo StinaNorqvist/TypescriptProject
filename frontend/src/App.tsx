@@ -1,4 +1,3 @@
-import React from "react";
 import "./index.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
@@ -11,28 +10,25 @@ import Login from "./pages/Login";
 import { CartProvider } from "./contexts/CartContext";
 import SignUp from "./pages/SignUp";
 import "./style/app.scss";
+import Menu from "./components/Menu";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function Root() {
-  return <Outlet />;
+  return (
+    <CartProvider>
+      <Header />
+      <Menu />
+      <Outlet />
+      <Footer />
+    </CartProvider>
+  );
 }
 
-function App(): JSX.Element {
+export const App = () => {
   const router = createBrowserRouter([
     {
       children: [
-        {
-          children: [
-            { element: <Home />, path: "/" },
-            { element: <Clothing />, path: "/clothing" },
-            { element: <Accessories />, path: "/accessories" },
-            { element: <About />, path: "/about" },
-            { element: <Cart />, path: "/cart" },
-            { element: <Login />, path: "/login" },
-            { element: <SignUp />, path: "/signup" },
-            // ADD ACCESSORIES ID PATH?
-            { element: <Item />, path: "/item/:id" },
-          ],
-        },
         { element: <Home />, path: "/" },
         { element: <Clothing />, path: "/clothing" },
         { element: <Accessories />, path: "/accessories" },
@@ -40,8 +36,6 @@ function App(): JSX.Element {
         { element: <Cart />, path: "/cart" },
         { element: <Login />, path: "/login" },
         { element: <SignUp />, path: "/signup" },
-
-        // ADD ACCESSORIES ID PATH?
         { element: <Item />, path: "/item/:id" },
       ],
       element: <Root />,
@@ -49,10 +43,8 @@ function App(): JSX.Element {
   ]);
   return (
     <>
-      <CartProvider>
-        <RouterProvider router={router} />
-      </CartProvider>
+      <RouterProvider router={router} />
     </>
   );
-}
+};
 export default App;

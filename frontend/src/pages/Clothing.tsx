@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Header from "../components/Header";
+import { useEffect, useState } from "react";
 import "../style/clothing.scss";
 import FilterButtons from "../components/FilterButtons";
 import { IProducts } from "../interfaces/interfaces";
 import { Link } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
 
-function Clothing(): JSX.Element {
+const Clothing = () => {
   const [products, setProducts] = useState<IProducts[]>([]);
   const [filterProducts, setFilterProducts] = useState<IProducts[]>([]);
   const { addToCart } = useCart();
@@ -32,7 +31,6 @@ function Clothing(): JSX.Element {
 
   return (
     <>
-      <Header />
       <h1>Clothing</h1>
 
       {/* 3. RECIEVE PROP AND NAME FUNCTION TO RECIEVEPROP THAT WILL HANDLE PROP */}
@@ -83,5 +81,5 @@ function Clothing(): JSX.Element {
       )}
     </>
   );
-}
+};
 export default Clothing;
