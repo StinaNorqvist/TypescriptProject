@@ -1,11 +1,10 @@
-import Footer from "../components/Footer";
 import HomeImage from "../assets/HomeImage.png";
+import "../style/home.scss";
 
 const Home = () => {
   return (
     <>
-      <img src={HomeImage} alt="HomeImage" />
-      <Footer />
+      <img src={HomeImage} alt="HomeImage" id="homeImage" />
     </>
   );
 };

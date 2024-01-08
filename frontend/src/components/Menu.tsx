@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import "../style/menu.scss";
 import CartIcon from "../Icons/CartIcon";
-import SearchIcon from "../Icons/SearchIcon";
 import PersonIcon from "../Icons/PersonIcon";
 
 const Menu = () => {
@@ -31,12 +30,12 @@ const Menu = () => {
       </ul>
       <ul className="rightMenu">
         <li>
+          <Link to="/login">Log in</Link>
+        </li>
+        <li>
           <Link to="/login" id="loginLink">
             <PersonIcon />
           </Link>
-        </li>
-        <li>
-          <SearchIcon />
         </li>
         <li>
           <Link to="/cart" id="cartLink">

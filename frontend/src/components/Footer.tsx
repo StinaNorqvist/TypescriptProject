@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
+import "../style/footer.scss";
 
 const Footer = () => {
   return (
     <>
-      <div>
-        <Link to={"/"}>
-          <p>Footer</p>
-        </Link>
+      <div id="footerDiv">
+        <Link to={"/"}>Home</Link>
       </div>
     </>
   );
