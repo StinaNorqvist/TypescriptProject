@@ -13,15 +13,18 @@ import "./style/app.scss";
 import Menu from "./components/Menu";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { UserProvider } from "./contexts/UserContext";
 
 function Root() {
   return (
-    <CartProvider>
-      <Header />
-      <Menu />
-      <Outlet />
-      <Footer />
-    </CartProvider>
+    <UserProvider>
+      <CartProvider>
+        <Header />
+        <Menu />
+        <Outlet />
+        <Footer />
+      </CartProvider>
+    </UserProvider>
   );
 }
 

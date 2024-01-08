@@ -2,8 +2,12 @@ import { Link } from "react-router-dom";
 import "../style/menu.scss";
 import CartIcon from "../Icons/CartIcon";
 import PersonIcon from "../Icons/PersonIcon";
+import { useLoggedIn } from "../contexts/UserContext";
 
 const Menu = () => {
+  const { loggedInUser, logout } = useLoggedIn();
+  console.log(loggedInUser, "MENU LOGGED IN");
+
   return (
     <nav>
       <ul className="leftMenu">
@@ -30,9 +34,15 @@ const Menu = () => {
       </ul>
       <ul className="rightMenu">
         <li>
-          <Link to="/login" id="loginMenuButton">
-            Log in
-          </Link>
+          {loggedInUser ? (
+            <button id="loginMenuButton" onClick={() => logout()}>
+              Log out
+            </button>
+          ) : (
+            <Link to="/login" id="loginMenuButton">
+              <button id="loginMenuButton">Log in</button>
+            </Link>
+          )}
         </li>
         <li>
           <Link to="/login" id="loginLink">

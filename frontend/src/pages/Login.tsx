@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { ILogin } from "../interfaces/interfaces";
+import { useLoggedIn } from "../contexts/UserContext";
 
 const Login = () => {
   const [success, setSuccess] = useState<boolean>(false);
   const [fail, setFail] = useState<boolean>(false);
+  const { login } = useLoggedIn();
 
   const initialValues = {
     useremail: "",
@@ -42,6 +44,7 @@ const Login = () => {
         if (res.status === 200) {
           setSuccess(true);
           setFail(false);
+          login(values);
         } else {
           setSuccess(false);
           setFail(true);
@@ -88,12 +91,11 @@ const Login = () => {
               {errors.userpassword && touched.userpassword && (
                 <p className="errors">{errors.userpassword}</p>
               )}
-            </div>
-
-            <div className="buttonDiv">
-              <button id="loginButton" type="submit" disabled={!isValid}>
-                Log in
-              </button>
+              <div className="buttonDiv">
+                <button id="loginButton" type="submit" disabled={!isValid}>
+                  Log in
+                </button>
+              </div>
             </div>
           </Form>
         )}

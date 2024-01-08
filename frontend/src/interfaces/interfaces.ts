@@ -12,12 +12,12 @@ export interface IProducts {
 export interface IUser {
   id?: string;
   userid?: number;
-  username: string;
+  username?: string;
   useremail: string;
   userpassword: string;
-  useraddress: string;
-  userzipcode: string;
-  usercity: string;
+  useraddress?: string;
+  userzipcode?: string;
+  usercity?: string;
 }
 
 export interface ILogin {
@@ -33,4 +33,10 @@ export interface ICategories {
 export interface ICartProps {
   cartItems: IProducts[];
   addToCart: (product: IProducts) => void;
+}
+
+export interface ILoginProps {
+  loggedInUser: IUser | null;
+  login: (user: IUser) => void;
+  logout: () => void;
 }
