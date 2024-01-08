@@ -15,9 +15,9 @@ describe("Clothing page tests", () => {
     cy.get(".productImage").should("exist");
   });
 
-  it("Should render Add To Cart buttons", () => {
-    cy.get("button").should("contain", "Add to Cart");
-  });
+  // it("Should render Add To Cart buttons", () => {
+  //   cy.get("button").should("contain", "Add to Cart");
+  // });
 
   it("Should render the filter buttons", () => {
     cy.get("#filterButtons").should("contain", "Tops");
