@@ -2,22 +2,24 @@ nav {
     background-color: #ffdbec;
     display: flex;
     justify-content: space-between;
+    height: 40px;
+    align-items: center;
   
     .leftMenu {
       display: flex;
       justify-content: space-between;
-      width: 40%;
+      width: 30%;
   
       li {
         list-style: none;
         padding-top: 3px;
         a {
           text-decoration: none;
-          color: black;
-          font-size: 16px;
+          color: #000000;
+          font-size: 14px;
         }
         a:hover {
-            color: #ff57a6;
+            color: #ff3996;
             text-decoration: underline; 
             text-underline-offset: 6px; 
           }
@@ -27,7 +29,7 @@ nav {
     .rightMenu {
       display: flex;
       justify-content: flex-end;
-      width: 40%;
+      width: 30%;
   
       li {
         list-style: none;
@@ -41,17 +43,13 @@ nav {
           justify-content: center;
           width: 70px;
           height: 30px;
-          font-size: 16px;
+          font-size: 14px;
         }
         a:hover {
-            color: #ff57a6;;
+            color: #ff3996;
             text-decoration: underline; 
             text-underline-offset: 6px; 
           }
-          a.active{
-            color: green;
-          }
-          
       }
     }
   }

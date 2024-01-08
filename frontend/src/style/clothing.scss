@@ -1,15 +1,28 @@
+h1 {
+  font-size: 23px;
+  display: flex;
+  justify-content: center;
+}
+
 .filtersDiv {
     display: flex;
     padding: 20px;
+    justify-content: center;
 
     button {
         appearance: none;
-        background-color: lightblue; 
         border: none;
-        margin: 0 20px 0 0;
+        margin: 0 25px 0 0;
         padding: 5px 10px 5px 10px;
         cursor: pointer;
+        background-color: transparent;
+        font-size: 14px;
     }
+    button:hover {
+      color: #ff3996;
+      text-decoration: underline; 
+      text-underline-offset: 6px; 
+  }
 }
 
 .productContainer {

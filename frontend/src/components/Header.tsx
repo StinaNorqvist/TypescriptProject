@@ -8,7 +8,6 @@ const Header = () => {
       <Link to={"/"}>
         <img src={Logo} id="wrenLogo" alt="Logo" />
       </Link>
-      <p id="logoText">Second hand clothing</p>
     </>
   );
 };

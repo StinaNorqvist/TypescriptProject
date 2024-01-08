@@ -31,9 +31,8 @@ const Clothing = () => {
 
   return (
     <>
-      <h1>Clothing</h1>
-
       {/* 3. RECIEVE PROP AND NAME FUNCTION TO RECIEVEPROP THAT WILL HANDLE PROP */}
+      <h1>Clothing</h1>
       <FilterButtons sendProp={receiveProp} />
 
       {filterProducts.length > 0 ? (
