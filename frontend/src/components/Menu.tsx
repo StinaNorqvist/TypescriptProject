@@ -30,7 +30,9 @@ const Menu = () => {
       </ul>
       <ul className="rightMenu">
         <li>
-          <Link to="/login">Log in</Link>
+          <Link to="/login" id="loginMenuButton">
+            Log in
+          </Link>
         </li>
         <li>
           <Link to="/login" id="loginLink">
