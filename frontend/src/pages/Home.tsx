@@ -1,4 +1,5 @@
 import Footer from "../components/Footer";
+import HomeImage from "../assets/HomeImage.png";
 
 const Home = () => {
   return (
