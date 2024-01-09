@@ -22,7 +22,7 @@ const Menu = () => {
           </Link>
         </li>
         <li>
-          <Link to="/accessories" id="AccessoriesLink">
+          <Link to="/accessories" id="accessoriesLink">
             Accessories
           </Link>
         </li>

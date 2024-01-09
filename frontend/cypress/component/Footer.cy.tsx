@@ -1,7 +1,7 @@
 import Footer from "../../src/components/Footer";
 
-describe("Menu.tsx", () => {
-  it("mounts Footer", () => {
+describe("Footer.tsx", () => {
+  it("mounts Footer components", () => {
     cy.mount(<Footer />);
   });
 });
