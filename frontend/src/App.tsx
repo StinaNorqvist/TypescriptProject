@@ -17,14 +17,17 @@ import { UserProvider } from "./contexts/UserContext";
 
 function Root() {
   return (
-    <UserProvider>
-      <CartProvider>
-        <Header />
-        <Menu />
-        <Outlet />
-        <Footer />
-      </CartProvider>
-    </UserProvider>
+    <>
+      <UserProvider>
+        <CartProvider>
+          <Header />
+          <Menu />
+          <Outlet />
+        </CartProvider>
+      </UserProvider>
+      {/* TEST TO PUT FOOTER OUTSIDE */}
+      <Footer />
+    </>
   );
 }
 

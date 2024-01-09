@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../style/menu.scss";
 import CartIcon from "../Icons/CartIcon";
 import PersonIcon from "../Icons/PersonIcon";
-import { useLoggedIn } from "../contexts/UserContext";
+import { useLoggedIn } from "../contexts/useLoggedIn";
 
 const Menu = () => {
   const { loggedInUser, logout } = useLoggedIn();

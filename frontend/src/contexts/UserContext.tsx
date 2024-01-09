@@ -1,17 +1,8 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useState, ReactNode } from "react";
 import { ILogin, ILoginProps } from "../interfaces/interfaces";
 
 // USER CONTEXT
 export const UserContext = createContext<ILoginProps | null>(null);
-
-// USE LOGGED IN
-export const useLoggedIn = () => {
-  const context = useContext(UserContext);
-  if (!context) {
-    throw new Error("useLoggedIn must be used within a UserProvider");
-  }
-  return context;
-};
 
 // USER PROVIDER
 export const UserProvider: React.FC<{ children: ReactNode }> = ({

@@ -41,4 +41,16 @@ describe("Clothing page tests", () => {
       );
     });
   });
+
+  it("Should render the name and price of the filtered products", () => {
+    cy.get("#filterButtons").should("contain", "Tops").click();
+    cy.get(".info").should("contain", "White Knit Vest");
+    cy.get(".info").should("contain", "350 SEK");
+    cy.get(".info").should("contain", "Provence T-Shirt");
+    cy.get(".info").should("contain", "250 SEK");
+    cy.get(".info").should("contain", "Mesh Long Sleeve Top");
+    cy.get(".info").should("contain", "300 SEK");
+    cy.get(".info").should("contain", "Red Tank Top");
+    cy.get(".info").should("contain", "150 SEK");
+  });
 });

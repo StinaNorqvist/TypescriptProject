@@ -9,6 +9,9 @@ module.exports = {
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
   plugins: ["react-refresh"],
+  globals: {
+    Cypress: true,
+  },
   rules: {
     "react-refresh/only-export-components": [
       "warn",
