@@ -3,12 +3,10 @@ import "../style/clothing.scss";
 import FilterButtons from "../components/FilterButtons";
 import { IProducts } from "../interfaces/interfaces";
 import { Link } from "react-router-dom";
-// import { useCart } from "../contexts/CartContext";
 
 const Clothing = () => {
   const [products, setProducts] = useState<IProducts[]>([]);
   const [filterProducts, setFilterProducts] = useState<IProducts[]>([]);
-  // const { addToCart } = useCart();
 
   // 4. SAY WHAT TO DO WITH THE RECIEVED PROP
   const receiveProp = (receivedProp: IProducts[]) => {
@@ -56,10 +54,6 @@ const Clothing = () => {
                   <p className="info">{p.productprice} SEK</p>
                 </div>
               </Link>
-
-              {/* <button className="addToCart" onClick={() => addToCart(p)}>
-                Add to Cart
-              </button> */}
             </div>
           ))}
         </div>

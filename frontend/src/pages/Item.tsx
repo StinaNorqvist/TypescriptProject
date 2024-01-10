@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IProducts } from "../interfaces/interfaces";
 import "../style/item.scss";
+import { useCart } from "../contexts/useCart";
+import { Link } from "react-router-dom";
 
 const Item = () => {
   const { id } = useParams();
@@ -9,9 +11,7 @@ const Item = () => {
   const [category, setCategory] = useState<string>("");
   const [similarItems, setSimilarItems] = useState<IProducts[]>([]);
   console.log(category);
-
-  //  NOT WORKING CORRECTLY
-  // NEED TO: 1. FETCH ITEM, 2. GET CATEGORY FROM ITEM, 3. FETCH SIMILAR ITEMS, 4. RANDOMIZE ITEMS. NOW IT RANDOMIZES AND SAVES BEFORE THE FETCH BY CATEGORY IS DONE
+  const { addToCart } = useCart();
 
   //   2. CALL SHUFFLE ARRAY
   const fetchSimilar = async (category: string) => {
@@ -72,7 +72,9 @@ const Item = () => {
             <h2>{item.productcategory}</h2>
             <h2>{item.productprice} SEK</h2>
             <h2>Size {item.productsize}</h2>
-            <button>Add to cart</button>
+            <button className="addToCart" onClick={() => addToCart(item)}>
+              Add to Cart
+            </button>
           </div>
         </div>
       )}
@@ -84,7 +86,13 @@ const Item = () => {
           .slice(0, 5)
           .map((i) => (
             <div key={i.productid}>
-              <img src={i.productimage} alt="Product Image" />
+              <Link
+                className="link"
+                to={`/item/${i.productid}`}
+                key={i.productid}
+              >
+                <img src={i.productimage} alt="Product Image" />
+              </Link>
             </div>
           ))}
       </div>
