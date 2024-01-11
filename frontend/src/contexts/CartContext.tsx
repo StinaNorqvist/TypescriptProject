@@ -14,11 +14,15 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     setCartItems((prevItems) => [...prevItems, product]);
   };
 
+  const removeFromCart = (product: IProducts) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item !== product));
+  };
+
   console.log(cartItems, "CART ITEMS");
 
   return (
     <>
-      <CartContext.Provider value={{ cartItems, addToCart }}>
+      <CartContext.Provider value={{ cartItems, addToCart, removeFromCart }}>
         {children}
       </CartContext.Provider>
     </>

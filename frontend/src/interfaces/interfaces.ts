@@ -33,6 +33,7 @@ export interface ICategories {
 export interface ICartProps {
   cartItems: IProducts[];
   addToCart: (product: IProducts) => void;
+  removeFromCart: (product: IProducts) => void;
 }
 
 export interface ILoginProps {
