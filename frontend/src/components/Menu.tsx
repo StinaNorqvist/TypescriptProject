@@ -3,10 +3,12 @@ import "../style/menu.scss";
 import CartIcon from "../Icons/CartIcon";
 import PersonIcon from "../Icons/PersonIcon";
 import { useLoggedIn } from "../contexts/useLoggedIn";
+import { useCart } from "../contexts/useCart";
 
 const Menu = () => {
   const { loggedInUser, logout } = useLoggedIn();
   console.log(loggedInUser, "MENU LOGGED IN");
+  const { cartItems } = useCart();
 
   return (
     <nav>
@@ -41,6 +43,7 @@ const Menu = () => {
         <li>
           <Link to="/cart" id="cartLink">
             <CartIcon />
+            <p id="cartAmount">{cartItems.length}</p>
           </Link>
         </li>
         <li>

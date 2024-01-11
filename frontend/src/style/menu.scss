@@ -64,6 +64,12 @@ nav {
           height: 30px;
           font-size: 14px;
           margin-top: 5px;
+
+          #cartAmount {
+            font-size: 15px;
+            margin-left: 5px;
+            margin-top:16px;
+          }
         }
         #cartLink:hover, #loginLink:hover {
             color: #ff3996;

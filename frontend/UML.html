@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+  </head>
+  <body>
+    <pre class="mermaid">
+    flowchart TD
+    A[Visit Webbsite] --> B(Browse products)
+    B --> C(Click on a product)
+    C -->  D{Do I want to buy this product?}
+    D -->|YES| E[Add product to cart]
+    D -->|NO| B
+    D -->|MAYBE| F[Add product to favorites]
+    F --> B
+    E --> G{Do I want to buy more products?}
+    G --> |YES| B
+    G --> |NO|H(Go to the cart and checkout)
+    </pre>
+  </body>
+</html>
