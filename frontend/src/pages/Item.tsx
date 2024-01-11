@@ -66,16 +66,15 @@ const Item = () => {
           <div className="leftDiv">
             <img src={item.productimage} alt="Product Image" />
           </div>
-          <div className="rightDiv">
-            <h1>{item.productname}</h1>
-            <h2>Condition: {item.productcondition}</h2>
-            <h2>{item.productcategory}</h2>
-            <h2>{item.productprice} SEK</h2>
-            <h2>Size {item.productsize}</h2>
+          <ul className="rightDiv">
+            <h2>{item.productname}</h2>
+            <li className="rightLi">{item.productcondition} condition</li>
+            <li className="rightLi">Size {item.productsize}</li>
+            <li className="rightLi">{item.productprice} SEK</li>
             <button className="addToCart" onClick={() => addToCart(item)}>
               Add to Cart
             </button>
-          </div>
+          </ul>
         </div>
       )}
       <h1 className="similarH1">You might also like</h1>

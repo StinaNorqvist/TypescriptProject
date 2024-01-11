@@ -34,17 +34,6 @@ const Menu = () => {
       </ul>
       <ul className="rightMenu">
         <li>
-          {loggedInUser ? (
-            <button id="loginMenuButton" onClick={() => logout()}>
-              Log out
-            </button>
-          ) : (
-            <Link to="/login" id="loginMenuButton">
-              <button id="loginMenuButton">Log in</button>
-            </Link>
-          )}
-        </li>
-        <li>
           <Link to="/login" id="loginLink">
             <PersonIcon />
           </Link>
@@ -53,6 +42,19 @@ const Menu = () => {
           <Link to="/cart" id="cartLink">
             <CartIcon />
           </Link>
+        </li>
+        <li>
+          {loggedInUser ? (
+            <button id="loginMenuButton" onClick={() => logout()}>
+              Log out
+            </button>
+          ) : (
+            <button id="loginMenuButton">
+              <Link to="/login" id="loginMenuButton">
+                Log in
+              </Link>
+            </button>
+          )}
         </li>
       </ul>
     </nav>

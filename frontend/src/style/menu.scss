@@ -30,6 +30,10 @@ nav {
       display: flex;
       justify-content: flex-end;
       width: 30%;
+
+      #loginMenuButton {
+        border: none;
+      }
   
       li {
         list-style: none;
@@ -47,7 +51,6 @@ nav {
         }
         a:hover {
             color: #ff3996;
-            text-decoration: underline; 
             text-underline-offset: 6px; 
           }
       }

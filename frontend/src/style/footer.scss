@@ -2,4 +2,41 @@
     background-color: #ffdbec;
     margin: 0;
     height: 100px;
+    padding-top: 20px;
+    margin-top: -10px;
+    
+
+    .logoDiv {
+        display: flex;
+        justify-content: center;
+
+        .TLogo {
+            width: 70px;
+            height: 30px;
+    
+        }
+    }
+
+    .menuDiv {
+        width: 97%;
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        margin-left: 10px;
+
+        .menuItem {
+            margin-right: 50px;
+            text-decoration: none;
+            color: #000000;
+            font-size: 14px;
+
+            &:hover {
+                color: #ff3996;
+                text-decoration: underline; 
+                text-underline-offset: 6px; 
+            }
+           
+           
+        }
+    }
 }
