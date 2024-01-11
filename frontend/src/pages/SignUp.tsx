@@ -151,7 +151,7 @@ const SignUp = () => {
         )}
       </Formik>
 
-      <Link to={"/login"}>Log in</Link>
+      <Link to={"/login"}>Login</Link>
     </>
   );
 };

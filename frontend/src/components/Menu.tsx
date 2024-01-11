@@ -50,9 +50,7 @@ const Menu = () => {
             </button>
           ) : (
             <button id="loginMenuButton">
-              <Link to="/login" id="loginMenuButton">
-                Log in
-              </Link>
+              <Link to="/login">Login</Link>
             </button>
           )}
         </li>

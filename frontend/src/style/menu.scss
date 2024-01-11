@@ -31,15 +31,30 @@ nav {
       justify-content: flex-end;
       width: 30%;
 
-      #loginMenuButton {
+      #loginMenuButton {
+        appearance: none;
         border: none;
+        cursor: pointer;
+        background-color: #ff92c5;
+        text-decoration: none;
+        padding: 12px 22px 12px 22px;
+
+        &:hover {
+          background-color: #ff3996;
+        }
+
+        a {
+          text-decoration: none;
+          color: #000000;
+        }
+
       }
   
       li {
         list-style: none;
         margin-left: 20px;
   
-        a {
+        #cartLink, #loginLink {
           text-decoration: none;
           color: black;
           display: flex;
@@ -48,8 +63,9 @@ nav {
           width: 70px;
           height: 30px;
           font-size: 14px;
+          margin-top: 5px;
         }
-        a:hover {
+        #cartLink:hover, #loginLink:hover {
             color: #ff3996;
             text-underline-offset: 6px; 
           }

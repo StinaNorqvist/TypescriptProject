@@ -93,7 +93,7 @@ const Login = () => {
               )}
               <div className="buttonDiv">
                 <button id="loginButton" type="submit" disabled={!isValid}>
-                  Log in
+                  Login
                 </button>
               </div>
             </div>

@@ -9,8 +9,8 @@ Before(() => {
   cy.visit("http://localhost:5173/");
 });
 
-Given("Jag är på hemsidan och knappen visar Log in", () => {
-  cy.get("#loginMenuButton").should("contain", "Log in");
+Given("Jag är på hemsidan och knappen visar Login", () => {
+  cy.get("#loginMenuButton").should("contain", "Login");
 });
 
 When("Jag har loggat in", () => {
