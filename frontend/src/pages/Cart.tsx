@@ -26,10 +26,7 @@ const Cart = () => {
               <div className="infoContainer">
                 <li className="cartInfo">{item.productname}</li>
                 <li className="cartInfo">{item.productprice} SEK</li>
-                <button
-                  className="addToCart"
-                  onClick={() => removeFromCart(item)}
-                >
+                <button id="removeButton" onClick={() => removeFromCart(item)}>
                   Remove
                 </button>
               </div>

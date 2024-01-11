@@ -1,5 +1,5 @@
 .cartContainer {
-    background-color: #ffdbec;
+    background-color: #fff2f8;
     width: 96%;
     overflow: hidden;
     display: flex;
@@ -33,6 +33,21 @@
         margin-right: 20px;
         font-size: 14px;
     }
+
+    #removeButton{  
+        appearance: none;
+        border: solid 1px #ff3996;
+        color: #ff3996;
+        cursor: pointer;
+        background-color: transparent;
+        font-size: 13px;
+        padding: 5px 10px 5px 10px;
+    }
+
+    #removeButton:hover {  
+        background-color: #ff3996;
+        color: white;
+    }
    
 }
    
@@ -61,7 +76,7 @@
 
     #checkoutButton:hover {
         background-color: #ff3996;
-                color: white;
+        color: white;
     }
 
 }
