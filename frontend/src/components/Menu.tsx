@@ -11,7 +11,7 @@ const Menu = () => {
   const { cartItems } = useCart();
 
   return (
-    <nav>
+    <nav id="menu">
       <ul className="leftMenu">
         <li>
           <Link to="/" id="homeLink">

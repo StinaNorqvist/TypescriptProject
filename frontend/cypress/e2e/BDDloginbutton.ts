@@ -18,7 +18,7 @@ When("Jag har loggat in", () => {
   cy.intercept("POST", "/api/login", { statusCode: 200 }).as("goodRequest");
   cy.get("#userEmail").type("stina@gmail.com");
   cy.get("#userPassword").type("password");
-  cy.get("#loginButton").click().wait(3000);
+  cy.get("#loginButton").click().wait(1000);
   cy.wait("@goodRequest").then((interception) => {
     expect(interception.response.statusCode).to.eq(200);
   });

@@ -1,15 +1,14 @@
 describe("Home page tests", () => {
-  it("Visits the home page", () => {
+  beforeEach(() => {
     cy.visit("http://localhost:5173/");
   });
 
-  it("Clicks on the link to clothing", () => {
-    cy.visit("http://localhost:5173/");
-    cy.get("#clothingLink").click();
+  it("Should render a menu and a footer", () => {
+    cy.get("#menu").should("exist");
+    cy.get("#footerDiv").should("exist");
   });
 
-  it("Clicks on the link to accessories", () => {
-    cy.visit("http://localhost:5173/");
-    cy.get("#accessoriesLink").click();
+  it("Should show the big image home page image", () => {
+    cy.get("#homeImage").should("exist");
   });
 });

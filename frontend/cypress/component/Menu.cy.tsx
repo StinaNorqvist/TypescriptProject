@@ -18,8 +18,6 @@ describe("Menu.tsx", () => {
     );
   });
 
-  it("Mounts the Menu component", () => {});
-
   it("Should render all the text links and lead to the right endpoints", () => {
     cy.get("#homeLink").should("exist").click();
     cy.url().should("include", "/");
